@@ -30,7 +30,10 @@ public class Main {
                     fs.cd(arg);
                     break;
                 case "ls":
-                    fs.ls();
+                    fs.ls(fs.getCurrent());
+                    break;
+                case "ls-r":
+                    fs.lsR(fs.getCurrent());
                     break;
                 case "pwd":
                     fs.pwd();

@@ -32,9 +32,18 @@ public class FileSystem {
         current.addChild(new File(name, current));
     }
 
-    public void ls() {
-        for (Node node : current.getChildren()) {
+    public void ls(Directory dir) {
+        for (Node node : dir.getChildren()) {
             System.out.println(node.getName());
+        }
+    }
+    public void lsR(Directory dir) {
+        for(Node node : dir.getChildren()) {
+            System.out.println(node.getName());
+            if(node instanceof Directory){
+                Directory directory = (Directory) node;
+                this.lsR(directory);
+            }
         }
     }
 
